@@ -1,7 +1,8 @@
 *.pyc
+*.pdf
 *~
 __pycache__
-myvenv
+mypro
 db.sqlite3
 /static
 .DS_Store
