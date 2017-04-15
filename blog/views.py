@@ -18,13 +18,14 @@ def news_list(request):
     ch = ["头条","财经","体育","教育","科技"]
     for channel in ch:
         result = jisu_collect.get_news(channel)
-        news = news + result
+        if(not result):
+            news = news + result
 
     # news = []
     # news_ = LoadJsonNews()
     # news_jisu = news_.getnews()
     # news = news + news_jisu
-    
+
     shuffle(news)
     return render(request, 'blog/news_list.html', {'news': news})
 
