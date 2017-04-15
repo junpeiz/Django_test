@@ -227,7 +227,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 	    text-overflow:    ellipsis;
 	    overflow:hidden;
 	    white-space:nowrap;
-	    width: 200px;
+	    width: 200px;	    
 	}
 	li.span2 .project-details {
 	    -o-text-overflow: ellipsis;

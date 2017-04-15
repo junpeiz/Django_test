@@ -1,3 +1,5 @@
+import json
+from random import shuffle
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate
@@ -5,10 +7,25 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Post
 from .forms import PostForm
 from .forms import SignUpForm
+from .LoadJsonNews import LoadJsonNews
+from .ZhihuDaily import ZhihuDailyFetcher
+from .jisu import jisu
 
 # Create your views here.
 def news_list(request):
     news = []
+    jisu_collect = jisu()
+    ch = ["头条","财经","体育","教育","科技"]
+    for channel in ch:
+        result = jisu_collect.get_news(channel)
+        news = news + result
+
+    # news = []
+    # news_ = LoadJsonNews()
+    # news_jisu = news_.getnews()
+    # news = news + news_jisu
+    
+    shuffle(news)
     return render(request, 'blog/news_list.html', {'news': news})
 
 def post_list(request):
