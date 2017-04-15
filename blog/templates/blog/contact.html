@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<p> Author: Junpei Zhou </p>
+<p> Email: Not available now </p>
+{% else %}
+<p> You have not been authenticated, please <a href="{% url 'login' %}"> login </a></p>
+{% endif %}
+
+{% endblock %}

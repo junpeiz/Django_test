@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 # models.Model means that the Post is a Django Model, so Django knows that it should be saved in the database.
+# This Post class is a child class of models.Model
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200) # for text with a limited number of characters
