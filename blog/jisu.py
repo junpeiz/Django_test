@@ -40,14 +40,14 @@ class jisu:
         params_encoded = urlencode(params)
         headers = {'content-type': 'application/json'}
         # print("get_news")
-        try:
-            response = requests.get(url, params=params_encoded, headers=headers, timeout=timeout).json()
-            # print(response)
-            if response['status'] == '0':
-                return response['result']['list']
-        except:
-            print("Some errors in get_news method!")
-            pass
+        # try:
+        response = requests.get(url, params=params_encoded, headers=headers, timeout=timeout).json()
+        # print(response)
+        if response['status'] == '0':
+            return response['result']['list']
+        # except:
+        #     print("Some errors in get_news method!")
+        #     pass
         return None
 
     @staticmethod
