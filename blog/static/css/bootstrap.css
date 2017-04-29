@@ -68,11 +68,13 @@ sub {
 
 img {
   width: auto\9;
-  height: auto;
+  /*height: 110px;*/
   max-width: 100%;
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
+  overflow: hidden;
+  height: 170px;
 }
 
 #map_canvas img {

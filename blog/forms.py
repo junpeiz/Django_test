@@ -1,7 +1,13 @@
 from django import forms
 from .models import Post
+from .models import News
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+
+# class NewsForm(forms.ModelForm):
+#     class Meta:
+#         model = News
+#         fields = ('title', 'category', 'src', 'pic', 'weburl', 'date',)
 
 class PostForm(forms.ModelForm):
     class Meta:

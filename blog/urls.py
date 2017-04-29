@@ -6,6 +6,8 @@ from . import views
 urlpatterns = [
     #only an empty string will match
     url(r'^$', views.news_list, name='news_list'), 
+    # URL for updating the news
+    url(r'^news_update/$', views.news_update, name='news_update'),
     # URL for post in blog
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^post/new/$', views.post_new, name='post_new'),

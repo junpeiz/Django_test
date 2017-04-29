@@ -34,13 +34,13 @@
                     <li  class="span3 gallery-item" data-id="{{ forloop.counter }}" data-type="{{ news_.category }}">
                         <span class="gallery-hover-4col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
-                                <a href="{{ news_.pic }}" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="{{ news_.weburl }}" class="item-details-link"></a>
+                                <a href="{{ news_.pic }}" class="item-zoom-link lightbox" title="{{ news_.title }}" data-rel="prettyPhoto"></a>
+                                <a target="_blank" href="{{ news_.weburl }}" class="item-details-link"></a>
                             </span>
                         </span>
                         <!-- The image of the news -->
-                        <a href="{{ news_.weburl }}"><img src="{{ news_.pic|default:'http://api.jisuapi.com/news/upload/20170415/100002_82818.jpg' }}" alt="Gallery" width="270px" height="220px"></a>
-                        <span class="project-details"><a href="{{ news_.weburl }}">{{ news_.title }}</a>{{ news_.src }}</span>
+                        <a target="_blank" href="{{ news_.weburl }}"><img src="{{ news_.pic|default:'http://api.jisuapi.com/news/upload/20170415/100002_82818.jpg' }}" alt="Gallery"></a>
+                        <span class="project-details"><a target="_blank" href="{{ news_.weburl }}">{{ news_.title }}</a>{{ news_.src }}</span>
                     </li>
                     {% endif %}
                 {% endfor %}
