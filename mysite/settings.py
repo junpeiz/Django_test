@@ -38,7 +38,7 @@ SECRET_KEY = '7uk+389x1$osk(j4&#s8=@s6&)h=o*a_)3rr@$6ttiq@56+bu&'
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'www.jpzhou.me']
 
 
 # Application definition
