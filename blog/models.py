@@ -35,13 +35,13 @@ class News(models.Model):
 
     @classmethod
     def get_and_store(cls, news_ins):
-        try:
-            o_news = cls(title=news_ins["title"], category=news_ins["category"], src = news_ins["src"], pic = news_ins["pic"], weburl = news_ins["weburl"], time = timezone.now())
-            o_news.save()
-            return o_news
-        except:
-           print("classmethod ERROR")
-           return None
+        # try:
+        o_news = cls(title=news_ins["title"], category=news_ins["category"], src = news_ins["src"], pic = news_ins["pic"], weburl = news_ins["weburl"], time = timezone.now())
+        o_news.save()
+        return o_news
+        # except:
+        #    print("classmethod ERROR")
+        #    return None
 
     def __str__(self):
         return self.title
