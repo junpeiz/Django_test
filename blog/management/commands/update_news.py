@@ -18,7 +18,7 @@ class Command(BaseCommand):
         from_local = 0
 
         self.stdout.write("Start fetching the news ......")
-        return
+
         if(not from_local):
             # The online version
             news = []
