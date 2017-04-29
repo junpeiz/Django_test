@@ -23,6 +23,7 @@ class jisu:
             if response['status'] == '0':
                 return response['result']
         except:
+            print("Some errors in get_channel method!")
             pass
         return None
 
@@ -45,6 +46,7 @@ class jisu:
             if response['status'] == '0':
                 return response['result']['list']
         except:
+            print("Some errors in get_news method!")
             pass
         return None
 
