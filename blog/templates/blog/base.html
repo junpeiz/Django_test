@@ -59,6 +59,8 @@
             <ul class="nav">
             <li><a href="/">Home</a></li>
             {% if user.is_authenticated %}
+            <li><a href="{% url 'history' %}">History</a></li>
+            <li><a href="{% url 'news_recommend' %}">Recommend</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -77,6 +79,8 @@
                     <option value="">Navigate...</option>
                     <option value="/">Home</option>
                     {% if user.is_authenticated %}
+                    <option value="{% url 'history' %}">History</option>
+                    <option value="{% url 'news_recommend' %}">Recommend</option>
                     <option value="{% url 'logout' %}">Logout</option>
                     {% else %}
                     <option value="{% url 'login' %}">Login</option>

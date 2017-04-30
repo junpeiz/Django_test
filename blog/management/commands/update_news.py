@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
-from blog.models import News
+from django.contrib.auth.models import User
+from blog.models import Post, News, UserProfile
 from blog.LoadJsonNews import LoadJsonNews
 from blog.jisu import jisu
 import json
-from random import shuffle
 
 class Command(BaseCommand):
 
@@ -11,9 +11,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # The parameter to control the maximum number of news in database
-        max_news_num = 500
+        max_news_num = 300
         # The parameter to control whether to delete all the news in database
-        delete_all = 0
+        delete_all_news = 0
+        # The parameter to control whether to delete all the users in database
+        delete_all_users = 0
         # The parameter to control whether to use the local version
         from_local = 0
 
@@ -38,17 +40,16 @@ class Command(BaseCommand):
         for temp_news in news:
             if(temp_news["pic"]=="" or temp_news["weburl"]==""):
                 news.remove(temp_news)
-        shuffle(news)
 
         # Save the news into the database
         for news_instance in news:
             News.get_and_store(news_instance)
 
-        if(delete_all):
-            # Delete all the news from database
-            news = News.objects.all()
-            for temp_news in news:
-                temp_news.delete()
+        if(delete_all_news):
+            News.objects.all().delete()
+        if(delete_all_users):
+            User.objects.all().delete()
+            UserProfile.objects.all().delete()
 
         # Control the number of the news in the database
         news_num = News.objects.all().count()
