@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^record/', views.record_history, name='record_history'), 
     # URL for recommending the news
     url(r'^news_recommend/$', views.news_recommend, name='news_recommend'),
-    # URL for recording the history
+    # URL for viewing the history
     url(r'^history/$', views.news_history, name='history'), 
     # URL for updating the news
     # url(r'^news_update/$', views.news_update, name='news_update'),
