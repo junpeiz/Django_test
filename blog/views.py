@@ -134,7 +134,10 @@ def news_recommend(request):
         news_collect = News.objects.all()
         current_user = request.user
         user = User.objects.get(username=current_user.username)
-        user_label = ast.literal_eval(user.userprofile.label)
+        if(user.userprofile.label == ""):
+            user_label = {}
+        else:
+            user_label = ast.literal_eval(user.userprofile.label)
         similarity_dict = {}
         for news_ins in news_collect:
             news_tags = ast.literal_eval(news_ins.tags)
@@ -156,7 +159,10 @@ def news_history(request):
     if request.user.is_authenticated():
         current_user = request.user
         user = User.objects.get(username=current_user.username)
-        user_history = ast.literal_eval(user.userprofile.click_history)
+        if(user.userprofile.click_history == ""):
+            user_history = []
+        else:
+            user_history = ast.literal_eval(user.userprofile.click_history)
     else:
         pass
     return render(request, 'blog/history.html', {'news': user_history})
