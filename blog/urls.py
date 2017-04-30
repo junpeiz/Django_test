@@ -9,9 +9,9 @@ urlpatterns = [
     # URL for recording the history
     url(r'^record/', views.record_history, name='record_history'), 
     # URL for recommending the news
-    url(r'^news_recommend/', views.news_recommend, name='news_recommend'),
+    url(r'^news_recommend/$', views.news_recommend, name='news_recommend'),
     # URL for recording the history
-    url(r'^history/', views.news_history, name='history'), 
+    url(r'^history/$', views.news_history, name='history'), 
     # URL for updating the news
     # url(r'^news_update/$', views.news_update, name='news_update'),
     # URL for post in blog
