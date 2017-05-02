@@ -138,8 +138,14 @@ def news_recommend(request):
             user_label = {}
         else:
             user_label = ast.literal_eval(user.userprofile.label)
+        if(user.userprofile.click_history == ""):    
+            history_list = []
+        else:
+            history_list = ast.literal_eval(user.userprofile.click_history)
         similarity_dict = {}
         for news_ins in news_collect:
+            if(news_ins.weburl in history_list):
+                continue
             news_tags = ast.literal_eval(news_ins.tags)
             temp_similarity = 0
             for tag in news_tags:
