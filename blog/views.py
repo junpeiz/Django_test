@@ -144,7 +144,11 @@ def news_recommend(request):
             history_list = ast.literal_eval(user.userprofile.click_history)
         similarity_dict = {}
         for news_ins in news_collect:
-            if(news_ins.weburl in history_list):
+            visited_flag = 0
+            for history_record in history_list:
+                if(news_ins.weburl == history_record["weburl"]):
+                    visited_flag = 1
+            if(visited_flag):
                 continue
             news_tags = ast.literal_eval(news_ins.tags)
             temp_similarity = 0
