@@ -165,6 +165,7 @@ def news_history(request):
             user_history = ast.literal_eval(user.userprofile.click_history)
     else:
         pass
+    user_history = reversed(user_history)
     return render(request, 'blog/history.html', {'news': user_history})
 
 def post_list(request):
