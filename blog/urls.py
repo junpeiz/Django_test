@@ -14,10 +14,6 @@ urlpatterns = [
     url(r'^history/$', views.news_history, name='history'), 
     # URL for updating the news
     # url(r'^news_update/$', views.news_update, name='news_update'),
-    # URL for post in blog
-    url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
-    url(r'^post/new/$', views.post_new, name='post_new'),
-    url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     # URL for sign up
     url(r'^signup/$', views.signup, name='signup'),
     # URL for log in and log out
